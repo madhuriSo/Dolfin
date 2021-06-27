@@ -31,4 +31,14 @@ export class QuizComponent implements OnInit {
     return this.questionCurrent; 
   }
 
+  checkAnswer(ans:string[]):boolean{
+      if(ans===this.questionCurrent.answer){
+        console.log();
+        return true;
+      }
+      else{
+        return false;
+      }
+  }
+
 }

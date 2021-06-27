@@ -1,12 +1,31 @@
-<div>
-   <h1> Take a quiz</h1>
+
+<div class="row" >
+<div class="col-lg" >
+    <h2 >Questions answered:</h2>
+    <ul *ngFor="let q of questions;let i=index">
+        <li>{{i+1}}</li>
+    </ul>
+    <p></p>
+</div>   
+<div class="col-lg">
+   <h1> Take a quiz:</h1>
    <div>
        <label> Question :</label><br/>
        <p>{{questionCurrent.question}}</p>
        <br>
-       <label>Select option</label> 
-       <p>{{questionCurrent.options}}</p>
+       <label>Select option: </label> 
+       <p *ngFor="let option of questionCurrent.options">
+           <input type="checkbox" name="" id=""/>
+           {{option}}
+        </p>
        <input type="button" value="previous"/>
-       <input type="button" value="next"/>
+       <input type="submit" (click)="checkAnswer([])"/>
+       <input type="reset" name="reset" id="">
+       <input type="button" value="next" (click)="getNextQuestion()"/>
    </div>
-</div>    
+</div>
+
+</div>
+
+
+

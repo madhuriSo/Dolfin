@@ -10,10 +10,11 @@ import {Question} from './model/question.model';
 export class AppComponent {
   title = 'Dolfin';
 
-  api: string = "https://localhost:8090/questions";
+ // api: string = "https://localhost:8090/questions";
   data = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(){}
+  //constructor(private http: HttpClient) { }
 
   ngOnInit() {
     //this.getQuestions();
