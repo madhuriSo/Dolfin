@@ -1,6 +1,7 @@
 
-<div class="navbar" >
-   <a href="#" *ngFor="let m of menuAdmin">{{m}}</a>
+<div class="navbar"  >
+   
+   <a href="#" *ngFor="let m of menuAdmin ; let i=index"(click)="viewComponent(i)">{{m}}</a>
    
 
 </div>

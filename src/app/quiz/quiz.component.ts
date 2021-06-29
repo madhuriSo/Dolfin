@@ -8,8 +8,10 @@ import { QuestionService } from '../services/question.service';
 })
 export class QuizComponent implements OnInit {
   questionCurrent:Question;
-  count:number;
+  count:number=1;
+  i:number=0;
   questions:Question[];
+  display:boolean=false;
   constructor( private qService:QuestionService) { 
     this.questions=qService.getQuestions();
     this.count=this.questions.length;
@@ -17,18 +19,37 @@ export class QuizComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(`QuizComponent-->Questions total: ${this.count}`);
-    console.log(`QuizComponent --> Questions are ${this.questions[0].question}`);
-    console.log(`QuizComponent -->Question is :${this.questionCurrent.question} and options are :
-                ${this.questionCurrent.options}
-                `);
   
   }
   getNextQuestion():Question{
+    if(this.count>0){
+      
+      this.questionCurrent=this.questions[this.i++];
+  
+      this.count--;
+    }else{
+      this.count=this.questions.length;
+      this.i=0;
+      this.questionCurrent=this.questions[this.i++];
 
-    this.questionCurrent=this.questions[this.count-1];
+    }
+    
     console.log(`Current question is :${this.questionCurrent}`);
     return this.questionCurrent; 
+  }
+  getPreviousQuestion(){
+    console.log(`this.i ${this.i} , this.count : ${this.count}`);
+    console.log(` i+count : ${this.i+this.count}`);
+    if(this.count>0){
+      this.questionCurrent=this.questions[this.count];
+      this.i--;
+      this.count--;
+    }else{
+      this.count=this.questions.length-1;
+      this.i=0;
+      this.questionCurrent=this.questions[this.i];
+    }
+
   }
 
   checkAnswer(ans:string[]):boolean{
@@ -39,6 +60,9 @@ export class QuizComponent implements OnInit {
       else{
         return false;
       }
+  }
+  displayComponent(){
+
   }
 
 }

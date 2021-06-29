@@ -18,7 +18,7 @@
            <input type="checkbox" name="" id=""/>
            {{option}}
         </p>
-       <input type="button" value="previous"/>
+       <input type="button" value="previous" (click)="getPreviousQuestion()"/>
        <input type="submit" (click)="checkAnswer([])"/>
        <input type="reset" name="reset" id="">
        <input type="button" value="next" (click)="getNextQuestion()"/>
