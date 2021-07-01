@@ -7,21 +7,33 @@
     </ul>
     <p></p>
 </div>   
-<div class="col-lg">
+<div class="col-lg form-group">
    <h1> Take a quiz:</h1>
    <div>
+       <form #quizForm="ngForm">
        <label> Question :</label><br/>
        <p>{{questionCurrent.question}}</p>
        <br>
        <label>Select option: </label> 
-       <p *ngFor="let option of questionCurrent.options">
-           <input type="checkbox" name="" id=""/>
+       <ul>
+           <li *ngFor="let option of questionCurrent.options;let i=index">
+               <input type="checkbox" [(ngModel)]="option.isChecked" 
+               (change)="changeSelection()" name="see" >
+               {{option.option}}
+           </li>
+       </ul>
+      <!--<p *ngFor="let option of questionCurrent.options; let i=index" class="form-control" >
+           <input type="radio" name="optionsAvail" [value]="i" id="" ngModel multiple />
            {{option}}
-        </p>
+        </p> --> 
+        
+        <br>
        <input type="button" value="previous" (click)="getPreviousQuestion()"/>
-       <input type="submit" (click)="checkAnswer([])"/>
+       <input type="submit" (click)="submit(quizForm)"/>
        <input type="reset" name="reset" id="">
        <input type="button" value="next" (click)="getNextQuestion()"/>
+        </form>
+        {{quizForm.value |json}}
    </div>
 </div>
 

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import {Question} from '../model/question.model';
 import { QuestionService } from '../services/question.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {Option} from '../model/answer.model';
+
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
@@ -11,6 +15,7 @@ export class QuizComponent implements OnInit {
   count:number=1;
   i:number=0;
   questions:Question[];
+  selectedOptionList:Option[]=[];
   display:boolean=false;
   constructor( private qService:QuestionService) { 
     this.questions=qService.getQuestions();
@@ -34,7 +39,7 @@ export class QuizComponent implements OnInit {
 
     }
     
-    console.log(`Current question is :${this.questionCurrent}`);
+    console.log(`Current question is :${this.questionCurrent.question}`);
     return this.questionCurrent; 
   }
   getPreviousQuestion(){
@@ -51,8 +56,11 @@ export class QuizComponent implements OnInit {
     }
 
   }
+  submit(quizForm:NgForm){
+    console.log("Form quiz data "+quizForm);
+  }
 
-  checkAnswer(ans:string[]):boolean{
+  checkAnswer(ans:Option[]):boolean{
       if(ans===this.questionCurrent.answer){
         console.log();
         return true;
@@ -60,6 +68,14 @@ export class QuizComponent implements OnInit {
       else{
         return false;
       }
+  }
+  changeSelection(){
+    this.selectedOptionList = this.questionCurrent.options.
+                              filter((value, index) => {
+                              return value.isChecked
+                              });
+     this.selectedOptionList.forEach(val=>console.log(val.option)) ;                        
+                            
   }
   displayComponent(){
 
