@@ -1,7 +1,7 @@
 
 <div class="row" >
 <div class="col-lg" >
-    <h2 >Questions answered:</h2>
+    <h1 >Questions answered:</h1>
     <ul *ngFor="let q of questions;let i=index">
         <li>{{i+1}}</li>
     </ul>
@@ -29,7 +29,7 @@
         
         <br>
        <input type="button" value="previous" (click)="getPreviousQuestion()"/>
-       <input type="submit" (click)="submit(quizForm)"/>
+       <input type="submit" (click)="submit()"/>
        <input type="reset" name="reset" id="">
        <input type="button" value="next" (click)="getNextQuestion()"/>
         </form>

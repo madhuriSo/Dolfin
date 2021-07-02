@@ -17,6 +17,7 @@ export class QuizComponent implements OnInit {
   questions:Question[];
   selectedOptionList:Option[]=[];
   display:boolean=false;
+  answer:boolean[]=[];
   constructor( private qService:QuestionService) { 
     this.questions=qService.getQuestions();
     this.count=this.questions.length;
@@ -56,8 +57,8 @@ export class QuizComponent implements OnInit {
     }
 
   }
-  submit(quizForm:NgForm){
-    console.log("Form quiz data "+quizForm);
+  submit(){
+  
   }
 
   checkAnswer(ans:Option[]):boolean{
