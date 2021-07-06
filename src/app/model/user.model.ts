@@ -4,9 +4,12 @@ export class User{
     email: string;
     password:string | undefined;
     isAdmin:boolean;
-    constructor(n:string,e:string,role:boolean){
-        this.name=n;
-        this.email=e;
+    public answer:Array<number>=[];
+    constructor(name:string,email:string,role:boolean,ans:Array<number>){
+        this.name=name;
+        this.email=email;
         this.isAdmin=role;
+        this.answer=ans;
     }
+    
 }

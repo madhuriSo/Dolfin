@@ -5,7 +5,8 @@ export interface IQuestion{
    question: string,
    options: Option[],
    answer: Option[],
-   isSingleValue:boolean   
+   isSingleValue:boolean,
+   points:number;   
 }
 export class Question implements IQuestion{
     constructor(
@@ -13,7 +14,8 @@ export class Question implements IQuestion{
         public question: string,
         public options: Option[],
         public answer: Option[],
-        public isSingleValue:boolean 
+        public isSingleValue:boolean,
+        public points:number 
       ) { }
 }
 export interface IQuestionService{

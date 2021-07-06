@@ -35,11 +35,12 @@ export class QuestionService implements IQuestionService {
                     }
                   ],
           answer:[{
-              id:1,
-              option:"Air",
+              id:4,
+              option:"Mind",
               isChecked:false
               }],
-          isSingleValue:true
+          isSingleValue:true,
+          points:1
         },
         { 
           qId:2,
@@ -70,7 +71,8 @@ export class QuestionService implements IQuestionService {
           option:"Pandit Neharu",
           isChecked:false
           }],
-          isSingleValue:true
+          isSingleValue:true,
+          points:1
         },
         { 
           qId:3,
@@ -100,8 +102,14 @@ export class QuestionService implements IQuestionService {
           id:2,
           option:"Ram-krishna",
           isChecked:false
-          }],
-          isSingleValue:true
+          },
+          {
+            id:4,
+            option:"Gautam Buddha",
+            isChecked:false
+            }],
+          isSingleValue:false,
+          points:2
         },
         { 
           qId:4,
@@ -132,7 +140,8 @@ export class QuestionService implements IQuestionService {
           option:"Peacock",
           isChecked:false
           }],
-          isSingleValue:true
+          isSingleValue:true,
+          points:1
         },
         { 
           qId:5,
@@ -153,7 +162,8 @@ export class QuestionService implements IQuestionService {
           option:"True",
           isChecked:false
           }],
-          isSingleValue:true
+          isSingleValue:true,
+          points:1
         },
         { 
           qId:6,
@@ -184,10 +194,11 @@ export class QuestionService implements IQuestionService {
           option:"32",
           isChecked:false
           }],
-          isSingleValue:true
+          isSingleValue:true,
+          points:1
         }
       ];
-      console.log(`QuestionService -->getQuestions-->questions ${questions}`)
+    //  console.log(`QuestionService -->getQuestions-->questions ${questions}`)
       return questions;
   }
   
