@@ -1,47 +1,54 @@
+<div class="row">
+    <div class="col-lg">
+        <h2>Questions answered:</h2>
 
-<div class="row" >
-<div class="col-lg" >
-    <h2 >Questions answered:</h2>
-    <ul *ngFor="let q of questions;let i=index">
-        <li>{{i+1}}</li>
-    </ul>
-    <p></p>
-</div>   
-<div class="col-lg form-group">
-   <h1> Take a quiz:</h1>
-   <div>
-       <form #quizForm="ngForm">
-       <label> Question :</label><br/>
-       <p>{{questionCurrent.question}}</p>
-       <br>
-       <label>Select option: </label> 
-       <ul>
-           <li *ngFor="let option of questionCurrent.options;let i=index">
-               <input type="checkbox" [(ngModel)]="option.isChecked" 
-               (change)="changeSelection()" name="see" >
-               {{option.option}}
-           </li>
-       </ul>
-      <!--<p *ngFor="let option of questionCurrent.options; let i=index" class="form-control" >
+        <ul *ngFor="let q of answersByUser;let i=index">
+            <li>{{i+1}} <label style="color: green;">answered</label></li>
+          
+        </ul>
+    <!--    
+        <ng-container *ngFor="let ansW of answersByUser;index as i">
+            <ng-container *ngFor="let q of questions;let j=index">
+                <ng-container *ngIf="i===j">
+                    {{j+1}}{{ansW}}
+                    <ng-container>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+        </ng-container>-->
+    </div>
+    <div class="col-lg form-group">
+        <h1> Take a quiz:</h1>
+        <div>
+            <form #quizForm="ngForm">
+                <label> Question :</label><br />
+                <p>{{questionCurrent.question}}</p>
+                <br>
+                <label>Select option: </label>
+                <ul>
+
+                    <li *ngFor="let option of questionCurrent.options;let i=index">
+                        <input type="checkbox" [(ngModel)]="option.isChecked" (change)="changeSelection()" name="see">
+                        {{option.option}}
+                    </li>
+                </ul>
+                <!--<p *ngFor="let option of questionCurrent.options; let i=index" class="form-control" >
            <input type="radio" name="optionsAvail" [value]="i" id="" ngModel multiple />
            {{option}}
-        </p> --> 
-        
-        <br>
-       <input type="button" value="previous" (click)="getPreviousQuestion()"/>
-       <input type="submit" (click)="submit()"/>
-       <input type="reset" name="reset" id="">
-       <input type="button" value="next" (click)="getNextQuestion()"/>
-        </form>
-        <!--{{quizForm.value |json}} -->
+        </p> -->
 
-        <div [hidden]="viewReport"><h2>View Report</h2>
-       <input type="button" value="view" (click)="checkReport()">{{points}}
+                <br>
+                <input type="button" value="previous" (click)="getPreviousQuestion()" />
+                <input type="submit" (click)="submit()" />
+                <input type="reset" name="reset" id="">
+                <input type="button" value="next" (click)="getNextQuestion()" />
+            </form>
+            <!--{{quizForm.value |json}} -->
+
+            <div [hidden]="viewReport">
+                <h2>View Report</h2>
+                <input type="button" value="view" (click)="checkReport()">{{points}}
+            </div>
         </div>
-   </div>
+    </div>
 </div>
-
-</div>
-
-
-

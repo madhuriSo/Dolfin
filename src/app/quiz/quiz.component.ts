@@ -22,11 +22,13 @@ export class QuizComponent implements OnInit {
   answer:boolean[]=[];
   user: User;
   points:number=0;
+  answersByUser:number[];
   constructor( private qService:QuestionService) { 
     this.questions=qService.getQuestions();
     this.count=this.questions.length;
     this.questionCurrent=this.getNextQuestion();
     this.user=new User("Test","test@gmail.com",false,[]);
+    this.answersByUser=this.user.answer;
   }
 
   ngOnInit(): void {
@@ -75,7 +77,7 @@ export class QuizComponent implements OnInit {
 
   checkAnswerMultiple(){
     if(this.questionCurrent.answer.length!=this.selectedOptionList.length){
-      this.user.answer[this.questionCurrent.qId]=0;
+      this.user.answer[this.questionCurrent.qId-1]=0;
       console.log("Incorrect answer");
     }
     else{
@@ -103,10 +105,10 @@ export class QuizComponent implements OnInit {
   //  console.log(` selection length :${this.selectedOptionList.length}`);
 
     if(check==this.selectedOptionList.length){
-      this.user.answer[this.questionCurrent.qId]=this.questionCurrent.points;
+      this.user.answer[this.questionCurrent.qId-1]=this.questionCurrent.points;
       console.log("correct answer");
     }else{
-      this.user.answer[this.questionCurrent.qId]=0;
+      this.user.answer[this.questionCurrent.qId-1]=0;
       console.log("Incorrect answer");
     }
   }
@@ -117,17 +119,17 @@ export class QuizComponent implements OnInit {
     console.log("----------checkAnswer Single Value----------")
     // If selection count is more than 1 , incorrect answer  
     if(this.selectedOptionList.length>1){
-      this.user.answer[this.questionCurrent.qId]=0;  
+      this.user.answer[this.questionCurrent.qId-1]=0;  
     //  console.log("Incorrect answer");
     }else{
         this.questionCurrent.answer.forEach(val=>{
           this.selectedOptionList.forEach(value=>{
             if(val.id==value.id){
-              this.user.answer[this.questionCurrent.qId]=this.questionCurrent.points;
+              this.user.answer[this.questionCurrent.qId-1]=this.questionCurrent.points;
               console.log("Correct Answer");
             }
             else{
-              this.user.answer[this.questionCurrent.qId]=0;
+              this.user.answer[this.questionCurrent.qId-1]=0;
               console.log("Incorrect answer");
             }
           })
