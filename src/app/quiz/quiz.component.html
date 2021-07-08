@@ -3,25 +3,15 @@
         <h2>Questions answered:</h2>
 
         <ul *ngFor="let q of answersByUser;let i=index">
-            <li>{{i+1}} <label style="color: green;">answered</label></li>
-          
-        </ul>
-    <!--    
-        <ng-container *ngFor="let ansW of answersByUser;index as i">
-            <ng-container *ngFor="let q of questions;let j=index">
-                <ng-container *ngIf="i===j">
-                    {{j+1}}{{ansW}}
-                    <ng-container>
-                    </ng-container>
-                </ng-container>
-            </ng-container>
-        </ng-container>-->
+            <li>{{i+1}} <label style="color: green;" *ngIf="q>=0" >answered</label></li>        
+        </ul> 
     </div>
     <div class="col-lg form-group">
         <h1> Take a quiz:</h1>
         <div>
             <form #quizForm="ngForm">
-                <label> Question :</label><br />
+                <label> {{questionCurrent.qId}} - Question :</label><br />
+                
                 <p>{{questionCurrent.question}}</p>
                 <br>
                 <label>Select option: </label>
