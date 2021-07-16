@@ -1,18 +1,23 @@
 <div>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   
   <!--
-  
-  
-  <app-login></app-login> -->
-  
+  <app-login></app-login> 
+   <a href="#" *ngFor="let m of menuAdmin ; let i=index"(click)="viewComponent(i)">{{m}}</a>
+   <app-menu></app-menu> <app-quiz></app-quiz> -->
   <div >
     <app-header></app-header>
   </div>
   <div >
-    <app-menu></app-menu>  
+    <div class="navbar"  >
+      <a routerLink="login"> Login </a>
+      <a routerLink="quiz">Quiz</a>
+      
+   </div>
   </div>
-  <div class="row">
-    <app-quiz></app-quiz>
+  <div class="row"> 
+    <router-outlet></router-outlet>
+  </div>
+  <div>
+    <app-footer></app-footer>
   </div>
 </div>

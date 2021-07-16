@@ -3,7 +3,13 @@
         <h2>Questions answered:</h2>
 
         <ul *ngFor="let q of answersByUser;let i=index">
-            <li>{{i+1}} <label style="color: green;" *ngIf="q>=0" >answered</label></li>        
+            <li>{{i+1}} <label style="color: green;" *ngIf="q>=0" > Answered
+            </label>
+           <!-- <ng-template #notAns>
+                <label #notAns style="color: red;"> Not answered
+                </label>
+            </ng-template> -->
+        </li>        
         </ul> 
     </div>
     <div class="col-lg form-group">

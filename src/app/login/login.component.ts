@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import {User} from '../model/user.model';
 import { UserService } from '../services/user.service';
 @Component({
@@ -17,8 +18,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(email:string,password:string){
-    console.log(`username is : ${email} and password is ${password}`);
+  login(loginR:NgForm){
+    let login=loginR.value;
+    console.log(`username is : ${login.userEmail} and password is ${login.userPass}`);
 
   }
 

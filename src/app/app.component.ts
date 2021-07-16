@@ -9,44 +9,14 @@ import {Question} from './model/question.model';
 })
 export class AppComponent {
   title = 'Dolfin';
-
- // api: string = "https://localhost:8090/questions";
+  menuAdmin :Array<string>=["Login","Add Questions","View Report","Take Quiz"];
+ 
   data = [];
 
   constructor(){}
-  //constructor(private http: HttpClient) { }
 
-  ngOnInit() {
-    //this.getQuestions();
-  }
-
-  getQuestions() {
-    /*
-    const promise = new Promise((resolve, reject) => {
-      const apiURL = this.api;
-      this.http
-        .get<Question[]>(apiURL)
-        .toPromise()
-        .then((res: any) => {
-          // Success
-          this.data = res.map((res: any) => {
-            return new Question(
-              res.qId,
-              res.question,
-              res.options,
-              res.answer,
-              res.isSingleValue
-            );
-          });
-          resolve("Complete");
-        },
-          err => {
-            // Error
-            reject(err);
-          }
-        );
-    });
-    return promise;  */
+  viewComponent(i:number) {
+   console.log("Input is :"+i);
   }
 
 

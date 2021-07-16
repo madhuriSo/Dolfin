@@ -1,24 +1,29 @@
+<div>
+    <h2>Login Page</h2>
+    <form #loginR="ngForm">
+    <table>
+        <tr>
+            <th>
+                <label>User email</label>
+            </th>
+            <th>
+                <input type="text" name="userEmail" value="Enter Email" ngModel/>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label>User Password</label>
+            </th>
+            <th>
+                <input type="password"  name="userPass" value="Enter Password" ngModel/>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <input type="button" value="login" (click)="login(loginR)">
+            </th>
+        </tr>
+    </table>
+    </form>
+</div>
 
-<table>
-    <tr>
-        <th>
-            <label for="">User email</label>
-        </th>
-        <th>
-            <input type="text" #use value="Enter Email"/>
-        </th>
-    </tr>
-    <tr>
-        <th>
-            <label for="">User Password</label>
-        </th>
-        <th>
-            <input type="password" #pass value="Enter Password"/>
-        </th>
-    </tr>
-    <tr>
-        <th>
-            <input type="button" value="login" (click)="login(use.value,pass.value)">
-        </th>
-    </tr>
-</table>
