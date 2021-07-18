@@ -6,7 +6,7 @@ app.use(express.static(path.join(__dirname,'dist/Dolfin/')));
 
 
 app.get('/*',function(req,res){
-    res.sendFile(path.join(__dirname+'/dist/Dolfin/index.html'));
+    res.sendFile(path.join(__dirname,'/dist/Dolfin/index.html'));
     if(err){
         res.writeHead(404,{'Content-Type':'text/html'});
         return  res.end("404 Not Found :"+err);
