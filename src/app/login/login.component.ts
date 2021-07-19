@@ -11,6 +11,7 @@ import { UserService } from '../services/user.service';
 export class LoginComponent implements OnInit {
    usersList:User[]=[];
    loginUser?:User;
+   msg:string="";
   constructor( private userService:UserService,public router:Router) { 
     this.usersList=this.userService.getUsers();
   }
@@ -24,7 +25,14 @@ export class LoginComponent implements OnInit {
                           if(val.email==login.userEmail&&val.password==login.userPass)
                           this.loginUser=val;
                           });
-    this.router.navigate(["quiz"]);                    
+    if(this.loginUser!=undefined) {
+      this.router.navigate(["quiz"]);  
+    }  
+    else{
+      this.msg="Invalid login credentials";
+    }                   
+                     
+                  
   }
 
 }
