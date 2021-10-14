@@ -18,7 +18,7 @@ export class AppComponent {
 
   viewComponent(i:number) {
    console.log("Input is :"+i);
-  }
+  }   
 
 
 }
